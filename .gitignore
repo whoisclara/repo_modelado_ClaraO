@@ -1,0 +1,4 @@
+__pycache__/ 
+.venv/
+.ipynb_checkpoints/
+!mlops_pipeline/src/BD_creditos.xlsx
