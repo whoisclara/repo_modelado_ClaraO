@@ -34,6 +34,7 @@ REM Volver al raíz del repo (dos niveles arriba del src)
 popd
 pushd "%~dp0"
 
+<<<<<<< Updated upstream
 echo Creando nuevo ambiente virtual: !project_code!-venv
 py -m venv "!project_code!-venv"
 
@@ -71,10 +72,53 @@ if %ERRORLEVEL% EQU 0 (
         echo.
         echo Advertencia: requirements.txt no fue encontrado en el directorio del repo.
     )
+=======
+REM Paso 3: Crear entorno virtual si no existe
+set "VENV_DIR=!project_code!-venv"
+if not exist "!VENV_DIR!" (
+    echo Creando entorno virtual: !VENV_DIR!
+    py -m venv "!VENV_DIR!"
+) else (
+    echo Entorno virtual ya existe: !VENV_DIR!
+)
+
+REM Paso 4: Instalar requirements.txt si existe
+call "!VENV_DIR!\Scripts\activate.bat"
+if exist requirements.txt (
+    echo Instalando librerías desde requirements.txt...
+    pip install --no-cache-dir -r requirements.txt
+) else (
+    echo ADVERTENCIA: No se encontró requirements.txt, se omite instalación.
+)
+
+REM Paso 5: Asegurar ipykernel instalado
+pip show ipykernel >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo Instalando ipykernel...
+    pip install ipykernel
+)
+
+REM Paso 6: Registrar kernel en Jupyter
+python -m ipykernel install --user --name="!project_code!-venv" --display-name="Python (!project_code!-venv)"
+if %ERRORLEVEL% EQU 0 (
+    echo Kernel registrado correctamente como "Python (!project_code!-venv)"
+>>>>>>> Stashed changes
 ) else (
     echo.
     echo Error activando el ambiente virtual.
 )
 
-popd
+REM Paso 7: Instrucción final para usuario
 echo.
+<<<<<<< Updated upstream
+=======
+echo === Setup finalizado ===
+echo Activa tu entorno manualmente con:
+echo.
+echo     call "!VENV_DIR!\Scripts\activate.bat"
+echo.
+echo Luego abre VS Code y selecciona ese intérprete.
+echo =========================
+
+popd
+>>>>>>> Stashed changes
