@@ -1,4 +1,14 @@
-__pycache__/ 
-.venv/
-.ipynb_checkpoints/
-!mlops_pipeline/src/BD_creditos.xlsx
+# Ignorar carpetas de compilación de Python
+__pycache__/
+*.py[cod]
+
+# Archivos de entorno virtual
+venv/
+.env/
+
+# Archivos de configuración locales
+*.env
+*.local
+
+# Archivos de logs
+*.log
