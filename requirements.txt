@@ -8,3 +8,7 @@ notebook
 ipykernel
 seaborn
 scikit-learn
+xgboost
+imblearn
+catboost
+joblib
