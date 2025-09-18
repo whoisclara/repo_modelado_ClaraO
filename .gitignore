@@ -12,3 +12,4 @@ venv/
 
 # Archivos de logs
 *.log
+catboost_info/
