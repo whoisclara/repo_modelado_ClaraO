@@ -107,13 +107,13 @@ def main():
     model_scale={
         "LogisticRegression": LogisticRegression(max_iter=1000, random_state=42),
         "SVM": SVC(kernel="rbf", probability=True, random_state=42),
-        "NeuralNet": MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=500, random_state=42),
+        "NeuralNet": MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=42),
     }
 
     model_noscale={
-        "RandomForest": RandomForestClassifier(n_estimators=300, random_state=42),
-        "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric="logloss", random_state=42),
-        "LightGBM": LGBMClassifier(random_state=42),
+        "RandomForest": RandomForestClassifier(n_estimators=500, random_state=42),
+        "XGBoost": XGBClassifier(eval_metric="logloss", random_state=42),
+        "LightGBM": LGBMClassifier(class_weight="balanced",num_leaves=31,learning_rate=0.05,n_estimators=200,random_state=42),
         "CatBoost": CatBoostClassifier(verbose=0, random_state=42),
         "BalancedRF": BalancedRandomForestClassifier(n_estimators=200, random_state=42),   
         "EasyEnsemble": EasyEnsembleClassifier(n_estimators=50, random_state=42) 
@@ -136,7 +136,7 @@ def main():
             fila = {
                 "Modelo": nombre,
                 "Pipeline": setting,
-                "CV_Precision_mora": valores["cv_mean_precision_mora"],
+                "CV_Precision_mora": valores["cv_mean_score_final"],
                 "Recall_mora": valores["test_metrics"]["recall_0"],
                 "Precision_mora": valores["test_metrics"]["precision_0"],
                 "F1_mora": valores["test_metrics"]["f1_0"],

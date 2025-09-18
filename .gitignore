@@ -1,6 +1,8 @@
 # Ignorar carpetas de compilación de Python
 __pycache__/
 *.py[cod]
+.ipynb_checkpoints/
+
 
 # Archivos de entorno virtual
 venv/
