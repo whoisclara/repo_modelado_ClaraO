@@ -147,10 +147,6 @@ def main(df: pd.DataFrame, target: str):
 
     df_noscale.to_csv(DATA_DIR / "df_sin_escalar.csv", index=False)
     df_scale.to_csv(DATA_DIR / "df_escalado.csv", index=False)
-    X_train.to_csv(DATA_DIR / "X_train.csv", index=False)
-    X_test.to_csv(DATA_DIR / "X_test.csv", index=False)
-    y_train.to_csv(DATA_DIR / "y_train.csv", index=False)
-    y_test.to_csv(DATA_DIR / "y_test.csv", index=False)
 
 
 
