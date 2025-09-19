@@ -16,6 +16,9 @@ API_URL = "http://127.0.0.1:8000/predict_batch"
 
 st.title("📊 Evaluación del Modelo Desplegado")
 
+# ============================
+# Cargar datos de test
+# ============================
 
 st.write("Cargando dataset de test...")
 

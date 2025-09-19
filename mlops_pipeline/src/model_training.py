@@ -188,6 +188,15 @@ def main():
     joblib.dump(resultados[mejor_modelo][mejor_resample]["best_model"], MODEL_DIR / "mejor_modelo.pkl")
     print(f"\u2705 Guardado en {MODEL_DIR}/mejor_modelo.pkl")
 
+    # ====================================================
+    # Guardar modelo alternativo (Voting)
+    # ====================================================
+    if "Voting" in resultados:
+        alt_model = resultados["Voting"]["none"]["best_model"]
+        joblib.dump(alt_model, MODEL_DIR / "modelo_alternativo.pkl")
+        print(f"✅ Guardado modelo alternativo en {MODEL_DIR}/modelo_alternativo.pkl")
+
+
     tt = resultados[mejor_modelo][mejor_resample]["threshold_tuning"]
     if tt is not None:
         tt.to_csv(RESULTS_DIR / "threshold_tuning_mejor.csv", index=False)
