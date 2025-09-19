@@ -12,3 +12,7 @@ xgboost
 imblearn
 catboost
 joblib
+fastapi
+pydantic
+
+
