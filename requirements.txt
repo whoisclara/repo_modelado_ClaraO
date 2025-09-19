@@ -16,4 +16,5 @@ fastapi
 pydantic
 uvicorn
 streamlit
-
+pytest
+pytest-cov
