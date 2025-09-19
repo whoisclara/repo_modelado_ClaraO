@@ -1,7 +1,7 @@
 # Ignorar carpetas de compilación de Python
 __pycache__/
 *.py[cod]
-.ipynb_checkpoints/
+mlops_pipeline/src/.ipynb_checkpoints/
 
 
 # Archivos de entorno virtual
@@ -15,3 +15,6 @@ venv/
 # Archivos de logs
 *.log
 catboost_info/
+
+#Carpeta de configuración de VSCO
+.vscode/

@@ -18,3 +18,4 @@ uvicorn
 streamlit
 pytest
 pytest-cov
+evidently
