@@ -14,5 +14,6 @@ catboost
 joblib
 fastapi
 pydantic
-
+uvicorn
+streamlit
 
