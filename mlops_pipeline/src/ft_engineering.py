@@ -144,9 +144,16 @@ def main(df: pd.DataFrame, target: str):
     df_scale= transform_data(X,y,pipe_scale)
 
     X_train, X_test, y_train, y_test= split_data(df_scale,target)
+    X_train_raw, X_test_raw= split_data(df_noscale,target)[0:2]
 
     df_noscale.to_csv(DATA_DIR / "df_sin_escalar.csv", index=False)
     df_scale.to_csv(DATA_DIR / "df_escalado.csv", index=False)
+    X_train.to_csv(DATA_DIR / "X_train.csv", index=False)
+    X_train_raw.to_csv(DATA_DIR / "X_train_raw.csv", index=False)
+    X_test_raw.to_csv(DATA_DIR / "X_test_raw.csv", index=False)
+    y_train.to_csv(DATA_DIR / "y_train.csv", index=False)
+    X_test.to_csv(DATA_DIR / "X_test.csv", index=False)
+    y_test.to_csv(DATA_DIR / "y_test.csv", index=False)
 
 
 

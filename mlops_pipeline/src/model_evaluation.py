@@ -1,43 +1,35 @@
-# mlops_pipeline/src/model_evaluation.py
 import requests
 import pandas as pd
 import streamlit as st
 from pathlib import Path
-from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
-from sklearn.model_selection import train_test_split
+from sklearn.metrics import (
+    classification_report, confusion_matrix, roc_curve, auc,
+    precision_recall_curve, average_precision_score
+)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# ============================
-# 1. Configuración
-# ============================
+
 BASE_DIR = Path(__file__).resolve().parents[1]
-DATA_PATH = BASE_DIR / "data" / "df_escalado.csv"
+DATA_DIR = BASE_DIR / "data"
 API_URL = "http://127.0.0.1:8000/predict_batch"
-TARGET = "Pago_atiempo"
 
 st.title("📊 Evaluación del Modelo Desplegado")
 
-# ============================
-# 2. Cargar datos
-# ============================
-st.write("Cargando dataset escalado...")
-df = pd.read_csv(DATA_PATH)
 
-X = df.drop(columns=[TARGET])
-y = df[TARGET]
+st.write("Cargando dataset de test...")
 
-# Split igual que en ft_engineering
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
+try:
+    X_test = pd.read_csv(DATA_DIR / "X_test.csv")
+except FileNotFoundError:
+    X_test = pd.read_csv(DATA_DIR / "X_test_raw.csv")
 
-st.write("✅ Dataset cargado con éxito")
+y_test = pd.read_csv(DATA_DIR / "y_test.csv").values.ravel()
+
+st.write("Dataset de test cargado con éxito")
 st.write(f"Tamaño X_test: {X_test.shape}, y_test: {y_test.shape}")
 
-# ============================
-# 3. Llamar al endpoint
-# ============================
+#LLamar al end-point
 st.write("Obteniendo predicciones del modelo vía API...")
 
 payload = {"batch": X_test.values.tolist()}
@@ -48,33 +40,33 @@ if response.status_code == 200:
     preds = result["predictions"]
     probas = result.get("probabilities", None)
 else:
-    st.error(f"❌ Error al conectar con la API ({response.status_code})")
+    st.error(f"Error al conectar con la API ({response.status_code})")
     st.stop()
 
 # ============================
-# 4. Métricas
+# Métricas
 # ============================
 st.subheader("Métricas de Clasificación")
 report = classification_report(y_test, preds, output_dict=True, zero_division=0)
 df_report = pd.DataFrame(report).transpose()
 
-# Mostrar como tabla
 st.dataframe(df_report.style.background_gradient(cmap="Blues").format("{:.2f}"))
 
 # ============================
-# 5. Matriz de confusión
+# Matriz de confusión
 # ============================
 st.subheader("Matriz de Confusión")
 cm = confusion_matrix(y_test, preds)
 
 fig, ax = plt.subplots()
-sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=[0,1], yticklabels=[0,1], ax=ax)
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues",
+            xticklabels=[0,1], yticklabels=[0,1], ax=ax)
 ax.set_xlabel("Predicciones")
 ax.set_ylabel("Reales")
 st.pyplot(fig)
 
 # ============================
-# 6. Curva ROC
+# Curva ROC
 # ============================
 st.subheader("Curva ROC")
 if probas:
@@ -94,14 +86,12 @@ else:
     st.warning("El modelo no retornó probabilidades, no se puede calcular ROC.")
 
 # ============================
-# 7. Precision-Recall Curve
+#  Precision-Recall Curve
 # ============================
-from sklearn.metrics import precision_recall_curve, average_precision_score
-
 st.subheader("Curva Precision-Recall")
 
 if probas:
-    probs_clase1 = [p[1] for p in probas]  # probabilidad de clase positiva
+    probs_clase1 = [p[1] for p in probas]  # probabilidad clase positiva
     precision, recall, thresholds = precision_recall_curve(y_test, probs_clase1)
     ap_score = average_precision_score(y_test, probs_clase1)
 
