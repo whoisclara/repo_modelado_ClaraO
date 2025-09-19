@@ -25,4 +25,4 @@ jobs:
         with:
           args: >
             -Dsonar.organization=whoisclara
-            -Dsonar.projectKey=repo_modelado_ClaraO
+            -Dsonar.projectKey=whoisclara_repo_modelado_ClaraO
