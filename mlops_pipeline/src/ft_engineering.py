@@ -10,7 +10,7 @@ from scipy.sparse import issparse
 
 from pathlib import Path
 
-DATA_DIR = Path(__file__).resolve().parent / "data"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)  # crea la carpeta si no existe
 
 #========================================================================
@@ -57,7 +57,7 @@ def limpia_data(df: pd.DataFrame) -> pd.DataFrame:
     
     #Imputar de variables redundantes
     df = df.drop(columns=["saldo_mora_codeudor", "saldo_principal", 
-                 "puntaje", "creditos_sectorFinanciero","salario_cliente"], errors="ignore")
+                 "puntaje", "creditos_sectorReal","salario_cliente"], errors="ignore")
     
     #Cambiar el tipo de credito a category
     df["tipo_credito"] = df["tipo_credito"].astype("category")

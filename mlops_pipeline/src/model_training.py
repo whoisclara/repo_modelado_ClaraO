@@ -136,7 +136,7 @@ def main():
             fila = {
                 "Modelo": nombre,
                 "Pipeline": setting,
-                "CV_Precision_mora": valores["cv_mean_score_final"],
+                "CV_Score_final": valores["cv_mean_score_final"],
                 "Recall_mora": valores["test_metrics"]["recall_0"],
                 "Precision_mora": valores["test_metrics"]["precision_0"],
                 "F1_mora": valores["test_metrics"]["f1_0"],
@@ -144,7 +144,7 @@ def main():
                 "F1_weighted": valores["test_metrics"]["f1_weighted"],
             }
             resumen.append(fila)
-    df_resumen = pd.DataFrame(resumen).sort_values(by="Precision_mora", ascending=False)
+    df_resumen = pd.DataFrame(resumen).sort_values(by="CV_Score_final", ascending=False)
 
     #Seleccionar y guardar el mejor modelo
     mejor_modelo = df_resumen.iloc[0]["Modelo"]
