@@ -18,7 +18,6 @@ A lo largo del proyecto se plantea un flujo organizado que permite trabajar los 
 
 La estructura real del repositorio es la siguiente:
 
-```text
 repo_modelado_ClaraO/
 └── mlops_pipeline/
     ├── data/                # Datasets procesados y artefactos de datos
@@ -35,11 +34,8 @@ repo_modelado_ClaraO/
         ├── model_evaluation.py
         ├── model_deploy.py
         └── model_monitoring.py
----
 
 ## Dataset
-
-Ubicación: mlops_pipeline/src/BD_creditos.xlsx
 
 El dataset contiene información histórica de clientes y su comportamiento crediticio.
 Incluye variables sociodemográficas y financieras, así como la variable objetivo que indica si una persona es apta o no apta para crédito.
