@@ -42,57 +42,6 @@ Incluye variables sociodemográficas y financieras, así como la variable objeti
 
 ⸻
 
-🔍 Análisis Exploratorio de Datos (EDA)
-
-Archivo: mlops_pipeline/src/comprension_eda.ipynb
-
-En esta etapa se realiza:
-	•	Exploración de la estructura del dataset
-	•	Identificación de valores nulos y atípicos
-	•	Análisis de distribuciones de variables
-	•	Exploración de la variable objetivo
-	•	Definición de criterios para limpieza y transformación de datos
-
-Los resultados del EDA guían las decisiones del feature engineering.
-
-⸻
-
-⚙️ Feature Engineering
-
-Archivo: mlops_pipeline/src/ft_engineering.py
-
-Este script se encarga de preparar los datos para el modelado:
-	•	Limpieza de datos
-	•	Manejo de valores nulos
-	•	Codificación de variables categóricas
-	•	Escalamiento de variables numéricas (cuando aplica)
-	•	Generación de datasets listos para entrenamiento
-
-Salidas esperadas:
-Los datasets transformados se almacenan en mlops_pipeline/data/.
-
-Modelo heurístico (baseline)
-
-Archivo: mlops_pipeline/src/heuristic_model.py
-
-Se implementa un modelo base heurístico que sirve como punto de comparación para los modelos de machine learning.
-Permite validar que los modelos entrenados aportan una mejora real frente a reglas simples.
-
-⸻
-
-🤖 Entrenamiento y selección de modelos
-
-Archivo: mlops_pipeline/src/model_training.py
-
-En esta etapa se:
-	•	Entrenan distintos modelos de machine learning
-	•	Evalúan mediante métricas apropiadas
-	•	Comparan resultados entre modelos
-	•	Selecciona el mejor modelo, considerando desempeño y consistencia
-
-Salidas esperadas:
-	•	Modelo seleccionado almacenado en mlops_pipeline/models/
-	•	Métricas y resultados en mlops_pipeline/results/
 
 ## 🔎 Calidad de código y análisis estático
 
