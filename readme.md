@@ -8,8 +8,8 @@ A lo largo del proyecto se plantea un flujo organizado que permite trabajar los 
 
 ## Objetivo del proyecto
 
-- Construir un flujo completo de **preparación de datos → entrenamiento → evaluación → despliegue (base) → monitoreo (base)**.
-- Entrenar y comparar modelos de machine learning para seleccionar el **mejor modelo** según desempeño y consistencia.
+- Construir un flujo completo de preparación de datos → entrenamiento → evaluación → despliegue → monitoreo 
+- Entrenar y comparar modelos de machine learning para seleccionar el mejor modelo según desempeño y consistencia.
 - Almacenar artefactos del pipeline (datasets procesados, modelos y métricas) de forma organizada.
 
 ---
@@ -35,9 +35,9 @@ repo_modelado_ClaraO/
         ├── model_evaluation.py
         ├── model_deploy.py
         └── model_monitoring.py
+---
 
-
-📦 Dataset
+## Dataset
 
 Ubicación: mlops_pipeline/src/BD_creditos.xlsx
 
