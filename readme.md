@@ -80,7 +80,9 @@ Este proyecto demuestra la implementación de un pipeline MLOps completo para sc
 - Monitoreo automático de data drift con alertas inteligentes
 - Métricas de negocio alineadas con objetivos financieros reales
 
-Por si solo no se recomienda usar un único modelo para hacer la predicción necesaria para este problema, pues ningún modelo es bueno prediciendo si una persona es morosa o no, como se puedo evidenciar en las métricas de evaluación, ya que predice demasiado bien una variable o la otra pero no las dos al tiempo. Por lo que se recomienda integrar en un futuro proyecto dos modelos de machine learning que funcionen muy bien para cada una de las respuestas del target, para así entrenar un nuevo modelo capaz de resolverlo.
+Los resultados obtenidos muestran que no es recomendable utilizar un único modelo de machine learning para abordar este problema de predicción, pues ningún modelo logra un desempeño equilibrado al identificar tanto a los clientes morosos como a los clientes que pagan a tiempo, lo cual se evidencia en las métricas de evaluación. Ya que algunos modelos presentan un buen desempeño limitado para la otra, lo que dificulta una buena claificación en ambos casos.
+
+Como trabajo futuro se recomienda explorar una implementación con la combinación de dos modelos, donde cada uno de estos esté optimizado para para predecir una de las clases del problema. Estos modelos podrían integrarse en una arquitectura conjunta que permita mejorar el desempeño global y lograr una predicción más balanceada
 
 ## Licencia
 
