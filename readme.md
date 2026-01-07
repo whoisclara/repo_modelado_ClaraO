@@ -20,6 +20,8 @@ Meta de negocio: Detectar al menos 75% de los clientes morosos para minimizar p�
 
 La estructura real del repositorio es la siguiente:
 
+text´´´´
+
 repo_modelado_ClaraO/
 └── mlops_pipeline/
     ├── data/                # Datasets procesados y artefactos de datos
@@ -36,6 +38,7 @@ repo_modelado_ClaraO/
         ├── model_evaluation.py
         ├── model_deploy.py
         └── model_monitoring.py
+    ´´´
 
 ## Dataset
 
