@@ -1,7 +1,8 @@
 # Proyecto CDP
 
-Repositorio enfocado en la **fase de modelado** de un caso de **riesgo crediticio**, cuyo objetivo es predecir si un cliente es **apto o no apto para crédito** a partir de información histórica.  
-El proyecto sigue una estructura tipo **MLOps pipeline**, separando datos, código, modelos y resultados para facilitar reproducibilidad, trazabilidad y escalabilidad.
+Este proyecto se desarrolla con el propósito de construir un pipeline de ciencia de datos orientado a la predicción de la aptitud crediticia de una persona, a partir de información histórica. La pregunta central que guía el trabajo es si, dados ciertos datos disponibles, es posible estimar de manera confiable si un individuo es apto o no para acceder a un crédito.
+
+A lo largo del proyecto se plantea un flujo organizado que permite trabajar los datos de forma estructurada, comenzando por su análisis y comprensión, continuando con su transformación y preparación, y culminando en el entrenamiento y evaluación de modelos predictivos. Más allá de obtener un resultado puntual, el enfoque está puesto en la construcción de un proceso claro y reproducible, que refleje cómo este tipo de soluciones podrían desarrollarse en un entorno real.
 
 ---
 
