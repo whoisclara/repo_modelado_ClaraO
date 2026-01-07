@@ -4,7 +4,6 @@ Este proyecto se desarrolla con el propósito de construir un pipeline de cienci
 
 A lo largo del proyecto se plantea un flujo organizado que permite trabajar los datos de forma estructurada, comenzando por su análisis y comprensión, continuando con su transformación y preparación, y culminando en el entrenamiento y evaluación de modelos predictivos. Más allá de obtener un resultado puntual, el enfoque está puesto en la construcción de un proceso claro y reproducible, que refleje cómo este tipo de soluciones podrían desarrollarse en un entorno real.
 
----
 
 ## Objetivo del proyecto
 
@@ -43,16 +42,49 @@ repo_modelado_ClaraO/
 El dataset contiene información histórica de clientes y su comportamiento crediticio.
 Incluye variables sociodemográficas y financieras, así como la variable objetivo que indica si una persona es apta o no apta para crédito.
 
-⸻
+## Features Implementadas
+**Developer**: Ingeniería de Datos
+Limpieza y preprocesamiento robusto
+Feature selection basada en domain knowledge
+Transformaciones optimizadas por tipo de modelo
 
+**Feature 1**: Entrenamiento y Despliegue
+Ensemble de modelos extremos con class weights
+Optimización de hiperparámetros automática
+API REST containerizada lista para producción
 
-## 🔎 Calidad de código y análisis estático
+**Feature 2**: Monitoreo y Evaluación
+Dashboard real-time de data drift
+Sistema de alertas automático
+Métricas de negocio alineadas con objetivos
 
-Durante el desarrollo del proyecto se realizaron pruebas de **calidad de código** utilizando **SonarCloud**, con el objetivo de evaluar:
+## Calidad de código y análisis estático
+
+Durante el desarrollo del proyecto se realizaron pruebas de calidad de código utilizando SonarCloud, con el objetivo de evaluar:
 
 - Calidad y mantenibilidad del código
 - Detección de code smells
 - Posibles vulnerabilidades
 - Buenas prácticas de desarrollo
 
-Estas validaciones permiten asegurar que el código cumple con estándares adecuados para su integración en un entorno productivo y facilitan su escalabilidad y mantenimiento.
+## Conclusiones
+
+Este proyecto demuestra la implementación de un pipeline MLOps completo para scoring de crédito que incluye:
+
+- Ingeniería de datos robusta con eliminación de data leakage
+- Modelos ensemble extremos optimizados para detectar morosos
+- API de producción con FastAPI y containerización Docker
+- Monitoreo automático de data drift con alertas inteligentes
+- Métricas de negocio alineadas con objetivos financieros reales
+
+Por si solo no se recomienda usar un único modelo para hacer la predicción necesaria para este problema, pues ningún modelo es bueno prediciendo si una persona es morosa o no, como se puedo evidenciar en las métricas de evaluación, ya que predice demasiado bien una variable o la otra pero no las dos al tiempo. Por lo que se recomienda integrar en un futuro proyecto dos modelos de machine learning que funcionen muy bien para cada una de las respuestas del target, para así entrenar un nuevo modelo capaz de resolverlo.
+
+## Licencia
+
+Proyecto académico para la materia Ciencia de Datos en Producción - Universidad Pontificia Bolivariana.
+
+## Autor
+
+ClaraIsabel Otalvaro Agudelo
+e-mail: clara.otalvaro@upb.edu.co
+Fecha: 25 de septiembre
