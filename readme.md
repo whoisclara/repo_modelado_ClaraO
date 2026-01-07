@@ -8,9 +8,12 @@ A lo largo del proyecto se plantea un flujo organizado que permite trabajar los 
 
 ## Objetivo del proyecto
 
-- Construir un flujo completo de preparación de datos → entrenamiento → evaluación → despliegue → monitoreo 
-- Entrenar y comparar modelos de machine learning para seleccionar el mejor modelo según desempeño y consistencia.
-- Almacenar artefactos del pipeline (datasets procesados, modelos y métricas) de forma organizada.
+Predecir si un cliente pagará su crédito a tiempo utilizando técnicas avanzadas de machine learning y un pipeline de producción robusto:
+
+Clase 1: Cliente paga a tiempo (Pago_atiempo = 1)
+Clase 0: Cliente moroso (Pago_atiempo = 0)
+
+Meta de negocio: Detectar al menos 75% de los clientes morosos para minimizar pérdidas financieras.
 
 ---
 
